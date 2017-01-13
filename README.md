@@ -14,6 +14,14 @@ What happens when I run
 
 That's it.
 
+How do I install it
+-------------------
+
+    git clone https://github.com/ssimono/share
+    sudo make install
+
+or copy *share.sh* somewhere in your PATH, because that's all it does
+
 How do I configure it
 ---------------------
 
