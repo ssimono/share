@@ -20,8 +20,6 @@ How do I install it
     git clone https://github.com/ssimono/share
     sudo make install
 
-or copy *share.sh* somewhere in your PATH, because that's all it does
-
 How do I configure it
 ---------------------
 
@@ -36,8 +34,10 @@ Create a *~/.sharerc* file and set values to those settings, if following defaul
     # If your public folder is accessible via a prefix (e.g http://127.0.0.1/my-prefix)
     SHARE_URL_PATH='/'
 
-    # You can specify which network interface you want the link to be generated from. If empty will output every possible url. Run `ifconfig` to get a list of your interfaces
+    # You can specify which network interface you want the link to be generated from.
+    # If empty, will output every possible url. Run `ifconfig` to get a list of your interfaces
     SHARE_INTERFACE=''
 
-    # If set to true, will add a '.txt' extension to the shared url so browser can display it right away. It won't do it for binary files
+    # If set to true, will add a '.txt' extension to the shared url so browser can
+    # display it right away. It won't do it for binary files
     AUTO_TEXT=false
