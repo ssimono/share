@@ -13,7 +13,7 @@ function help {
 function echo_share_link {
   pattern='\s*inet addr:\([0-9\.]*\).*$'
   escaped_replace=$(echo $SHARE_URL_PATH | sed 's/^\/$//;s/\//\\\//g')
-  filename=$(basename $2)
+  filename=$(basename "$2" | sed 's/\s/%20/g')
 
   ifconfig $1 2>/dev/null | sed -n "s/$pattern/http:\/\/\1$escaped_replace\/$filename/p"
 }
@@ -33,7 +33,7 @@ function share_file {
     return
   fi
 
-  echo "rm $SHARE_DIRECTORY/$1" | at now+$SHARE_TTL 2>/dev/null
+  echo "rm \"$SHARE_DIRECTORY/$filename\"" | at now+$SHARE_TTL 2>/dev/null
   if [ $? != 0 ]; then
     echo "Cannot plan file removal. Please delete the file manually"
   fi
